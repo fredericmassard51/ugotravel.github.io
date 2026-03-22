@@ -1,12 +1,596 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mon premier site</title>
-</head>
-<body style="font-family:Arial; text-align:center; margin-top:100px;">
-
-  <h1>Bienvenue sur mon site 🚀</h1>
-  <p>Site créé par Frédéric avec GitHub</p>
-
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 9b4d51fa73743dba39c6403411455b17aeb7aa33..ad3ca7470f598ca2278a72df7f99636f0edb5807 100644
+--- a/index.html
++++ b/index.html
+@@ -1,12 +1,586 @@
+ <!DOCTYPE html>
+-<html>
++<html lang="fr">
+ <head>
+-  <title>Mon premier site</title>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <meta name="description" content="Ugo Travel, agence réceptive touristique premium spécialisée dans les expériences sur mesure, circuits d'exception et services haut de gamme.">
++  <title>Ugo Travel | Agence réceptive touristique premium</title>
++  <style>
++    :root {
++      --bg: #07141f;
++      --bg-soft: #0d2233;
++      --card: rgba(10, 29, 43, 0.72);
++      --text: #f5f7fa;
++      --muted: #c8d3dd;
++      --gold: #d6b36a;
++      --gold-strong: #e8c98a;
++      --line: rgba(255, 255, 255, 0.12);
++      --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
++      --radius: 24px;
++      --max-width: 1180px;
++    }
++
++    * {
++      box-sizing: border-box;
++      margin: 0;
++      padding: 0;
++    }
++
++    html {
++      scroll-behavior: smooth;
++    }
++
++    body {
++      font-family: "Segoe UI", Arial, sans-serif;
++      color: var(--text);
++      background:
++        radial-gradient(circle at top, rgba(214, 179, 106, 0.15), transparent 28%),
++        linear-gradient(180deg, #06111a 0%, #0a1b28 34%, #0e2433 100%);
++      line-height: 1.6;
++    }
++
++    img {
++      max-width: 100%;
++      display: block;
++    }
++
++    a {
++      color: inherit;
++      text-decoration: none;
++    }
++
++    .container {
++      width: min(calc(100% - 2rem), var(--max-width));
++      margin: 0 auto;
++    }
++
++    .hero {
++      min-height: 100vh;
++      position: relative;
++      display: flex;
++      align-items: center;
++      overflow: hidden;
++      background:
++        linear-gradient(120deg, rgba(4, 12, 20, 0.82), rgba(4, 12, 20, 0.35)),
++        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
++    }
++
++    .hero::after {
++      content: "";
++      position: absolute;
++      inset: 0;
++      background: linear-gradient(180deg, transparent 60%, rgba(7, 20, 31, 0.95) 100%);
++    }
++
++    .nav {
++      position: absolute;
++      top: 0;
++      left: 0;
++      width: 100%;
++      z-index: 2;
++      padding: 1.4rem 0;
++    }
++
++    .nav .container {
++      display: flex;
++      align-items: center;
++      justify-content: space-between;
++      gap: 1rem;
++    }
++
++    .brand {
++      font-size: 1.35rem;
++      font-weight: 700;
++      letter-spacing: 0.18rem;
++      text-transform: uppercase;
++    }
++
++    .brand span {
++      color: var(--gold-strong);
++    }
++
++    .nav-links {
++      display: flex;
++      gap: 1.5rem;
++      color: rgba(255, 255, 255, 0.88);
++      font-size: 0.95rem;
++    }
++
++    .hero-content {
++      position: relative;
++      z-index: 1;
++      width: min(760px, 100%);
++      padding: 8rem 0 4rem;
++    }
++
++    .eyebrow {
++      display: inline-flex;
++      align-items: center;
++      gap: 0.65rem;
++      padding: 0.6rem 1rem;
++      border: 1px solid rgba(255, 255, 255, 0.22);
++      border-radius: 999px;
++      background: rgba(255, 255, 255, 0.08);
++      color: var(--gold-strong);
++      backdrop-filter: blur(6px);
++      margin-bottom: 1.5rem;
++      font-size: 0.88rem;
++      letter-spacing: 0.06rem;
++      text-transform: uppercase;
++    }
++
++    h1 {
++      font-size: clamp(2.8rem, 7vw, 5.8rem);
++      line-height: 0.98;
++      margin-bottom: 1.2rem;
++      text-transform: uppercase;
++      letter-spacing: 0.06rem;
++    }
++
++    .hero p {
++      max-width: 650px;
++      font-size: 1.08rem;
++      color: var(--muted);
++      margin-bottom: 2rem;
++    }
++
++    .hero-actions {
++      display: flex;
++      flex-wrap: wrap;
++      gap: 1rem;
++      margin-bottom: 2.3rem;
++    }
++
++    .btn {
++      display: inline-flex;
++      align-items: center;
++      justify-content: center;
++      min-height: 52px;
++      padding: 0.9rem 1.5rem;
++      border-radius: 999px;
++      font-weight: 600;
++      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
++    }
++
++    .btn:hover {
++      transform: translateY(-2px);
++      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
++    }
++
++    .btn-primary {
++      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
++      color: #1b1406;
++    }
++
++    .btn-secondary {
++      border: 1px solid rgba(255, 255, 255, 0.2);
++      background: rgba(255, 255, 255, 0.06);
++      color: var(--text);
++      backdrop-filter: blur(6px);
++    }
++
++    .hero-stats {
++      display: grid;
++      grid-template-columns: repeat(3, minmax(0, 1fr));
++      gap: 1rem;
++      max-width: 760px;
++    }
++
++    .stat {
++      padding: 1.2rem;
++      border-radius: 20px;
++      border: 1px solid rgba(255, 255, 255, 0.12);
++      background: rgba(255, 255, 255, 0.07);
++      backdrop-filter: blur(8px);
++    }
++
++    .stat strong {
++      display: block;
++      font-size: 1.7rem;
++      color: var(--gold-strong);
++      margin-bottom: 0.3rem;
++    }
++
++    section {
++      padding: 6rem 0;
++    }
++
++    .section-heading {
++      display: flex;
++      align-items: end;
++      justify-content: space-between;
++      gap: 1.5rem;
++      margin-bottom: 2.5rem;
++    }
++
++    .section-heading .tag {
++      color: var(--gold-strong);
++      text-transform: uppercase;
++      letter-spacing: 0.12rem;
++      font-size: 0.82rem;
++      margin-bottom: 0.7rem;
++      display: inline-block;
++    }
++
++    h2 {
++      font-size: clamp(2rem, 4vw, 3rem);
++      line-height: 1.1;
++      margin-bottom: 0.8rem;
++    }
++
++    .section-heading p,
++    .lead {
++      color: var(--muted);
++      max-width: 680px;
++    }
++
++    .cards,
++    .tour-grid,
++    .reasons {
++      display: grid;
++      gap: 1.4rem;
++    }
++
++    .cards {
++      grid-template-columns: repeat(3, minmax(0, 1fr));
++    }
++
++    .tour-grid {
++      grid-template-columns: repeat(3, minmax(0, 1fr));
++    }
++
++    .reasons {
++      grid-template-columns: repeat(4, minmax(0, 1fr));
++    }
++
++    .card,
++    .tour,
++    .reason,
++    .contact-box {
++      background: var(--card);
++      border: 1px solid var(--line);
++      border-radius: var(--radius);
++      box-shadow: var(--shadow);
++      overflow: hidden;
++      backdrop-filter: blur(10px);
++    }
++
++    .card,
++    .reason {
++      padding: 1.8rem;
++    }
++
++    .icon {
++      width: 54px;
++      height: 54px;
++      border-radius: 18px;
++      display: inline-flex;
++      align-items: center;
++      justify-content: center;
++      background: linear-gradient(135deg, rgba(214, 179, 106, 0.22), rgba(255, 255, 255, 0.06));
++      color: var(--gold-strong);
++      font-size: 1.4rem;
++      margin-bottom: 1.1rem;
++    }
++
++    .card h3,
++    .tour h3,
++    .reason h3,
++    .contact-box h3 {
++      font-size: 1.25rem;
++      margin-bottom: 0.7rem;
++    }
++
++    .card p,
++    .tour p,
++    .reason p,
++    .contact-box p {
++      color: var(--muted);
++    }
++
++    .tour-image {
++      height: 250px;
++      background-size: cover;
++      background-position: center;
++      position: relative;
++    }
++
++    .tour-image::after {
++      content: "";
++      position: absolute;
++      inset: 0;
++      background: linear-gradient(180deg, transparent 35%, rgba(7, 20, 31, 0.92) 100%);
++    }
++
++    .tour-body {
++      padding: 1.6rem;
++    }
++
++    .tour-meta {
++      display: inline-block;
++      margin-bottom: 0.8rem;
++      color: var(--gold-strong);
++      letter-spacing: 0.08rem;
++      text-transform: uppercase;
++      font-size: 0.76rem;
++    }
++
++    .reason-number {
++      font-size: 0.9rem;
++      color: var(--gold-strong);
++      letter-spacing: 0.1rem;
++      text-transform: uppercase;
++      margin-bottom: 0.8rem;
++      display: block;
++    }
++
++    .contact {
++      padding-bottom: 7rem;
++    }
++
++    .contact-box {
++      display: grid;
++      grid-template-columns: 1.3fr 0.9fr;
++    }
++
++    .contact-content,
++    .contact-side {
++      padding: 2.2rem;
++    }
++
++    .contact-side {
++      background: linear-gradient(135deg, rgba(214, 179, 106, 0.16), rgba(255, 255, 255, 0.03));
++      border-left: 1px solid var(--line);
++      display: flex;
++      flex-direction: column;
++      justify-content: center;
++      gap: 1rem;
++    }
++
++    .contact-mail {
++      font-size: 1.15rem;
++      color: var(--gold-strong);
++      word-break: break-word;
++    }
++
++    footer {
++      padding: 0 0 2rem;
++      text-align: center;
++      color: rgba(255, 255, 255, 0.6);
++      font-size: 0.92rem;
++    }
++
++    @media (max-width: 980px) {
++      .cards,
++      .tour-grid,
++      .reasons,
++      .contact-box {
++        grid-template-columns: 1fr 1fr;
++      }
++
++      .contact-box {
++        grid-template-columns: 1fr;
++      }
++
++      .contact-side {
++        border-left: none;
++        border-top: 1px solid var(--line);
++      }
++    }
++
++    @media (max-width: 760px) {
++      .nav .container,
++      .section-heading {
++        flex-direction: column;
++        align-items: flex-start;
++      }
++
++      .nav-links {
++        flex-wrap: wrap;
++        gap: 0.85rem 1rem;
++      }
++
++      .hero {
++        min-height: auto;
++      }
++
++      .hero-content {
++        padding-top: 9rem;
++      }
++
++      .hero-stats,
++      .cards,
++      .tour-grid,
++      .reasons {
++        grid-template-columns: 1fr;
++      }
++    }
++  </style>
+ </head>
+-<body style="font-family:Arial; text-align:center; margin-top:100px;">
++<body>
++  <header class="hero" id="accueil">
++    <nav class="nav">
++      <div class="container">
++        <a class="brand" href="#accueil">Ugo <span>Travel</span></a>
++        <div class="nav-links">
++          <a href="#services">Services</a>
++          <a href="#circuits">Circuits</a>
++          <a href="#pourquoi-nous">Pourquoi nous choisir</a>
++          <a href="#contact">Contact</a>
++        </div>
++      </div>
++    </nav>
++
++    <div class="container hero-content">
++      <div class="eyebrow">Agence réceptive touristique premium</div>
++      <h1>Ugo Travel</h1>
++      <p>Nous concevons des expériences sur mesure pour voyageurs exigeants : séjours exclusifs, circuits signature et accueil haut de gamme pour découvrir les plus belles destinations avec élégance.</p>
++      <div class="hero-actions">
++        <a class="btn btn-primary" href="#contact">Demander une proposition</a>
++        <a class="btn btn-secondary" href="#circuits">Découvrir nos circuits</a>
++      </div>
++      <div class="hero-stats">
++        <div class="stat">
++          <strong>100%</strong>
++          <span>expériences personnalisées selon vos attentes</span>
++        </div>
++        <div class="stat">
++          <strong>24/7</strong>
++          <span>accompagnement dédié avant, pendant et après le séjour</span>
++        </div>
++        <div class="stat">
++          <strong>Premium</strong>
++          <span>partenaires sélectionnés pour leur excellence</span>
++        </div>
++      </div>
++    </div>
++  </header>
++
++  <main>
++    <section id="services">
++      <div class="container">
++        <div class="section-heading">
++          <div>
++            <span class="tag">Nos services</span>
++            <h2>Une prise en charge complète pour un voyage sans compromis</h2>
++          </div>
++          <p>Ugo Travel accompagne les particuliers, groupes et partenaires avec des solutions réceptives raffinées, fluides et parfaitement orchestrées.</p>
++        </div>
++
++        <div class="cards">
++          <article class="card">
++            <div class="icon">✦</div>
++            <h3>Accueil VIP</h3>
++            <p>Transferts privés, accueil personnalisé à l’arrivée et coordination premium pour un début de séjour serein et exclusif.</p>
++          </article>
++          <article class="card">
++            <div class="icon">✧</div>
++            <h3>Conciergerie sur mesure</h3>
++            <p>Réservations, recommandations personnalisées, expériences privées et assistance dédiée pour chaque instant du voyage.</p>
++          </article>
++          <article class="card">
++            <div class="icon">❖</div>
++            <h3>Organisation d’itinéraires</h3>
++            <p>Création de programmes équilibrés mêlant culture, détente, gastronomie et moments d’exception selon vos envies.</p>
++          </article>
++        </div>
++      </div>
++    </section>
++
++    <section id="circuits">
++      <div class="container">
++        <div class="section-heading">
++          <div>
++            <span class="tag">Nos circuits</span>
++            <h2>Des parcours inspirants conçus pour marquer les esprits</h2>
++          </div>
++          <p>Nos circuits allient immersion, confort et élégance afin d’offrir une vision authentique et haut de gamme de chaque destination.</p>
++        </div>
++
++        <div class="tour-grid">
++          <article class="tour">
++            <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');"></div>
++            <div class="tour-body">
++              <span class="tour-meta">Circuit signature</span>
++              <h3>Évasion Nature & Luxe</h3>
++              <p>Une parenthèse entre paysages spectaculaires, hébergements de charme et activités exclusives pour une reconnexion totale.</p>
++            </div>
++          </article>
++          <article class="tour">
++            <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80');"></div>
++            <div class="tour-body">
++              <span class="tour-meta">Immersion culturelle</span>
++              <h3>Patrimoine & Art de vivre</h3>
++              <p>Un voyage raffiné à travers les sites emblématiques, les rencontres locales et les adresses d’exception soigneusement choisies.</p>
++            </div>
++          </article>
++          <article class="tour">
++            <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"></div>
++            <div class="tour-body">
++              <span class="tour-meta">Séjour exclusif</span>
++              <h3>Escapade Bord de Mer</h3>
++              <p>Une expérience premium entre horizons marins, instants de détente et services personnalisés pour un séjour inoubliable.</p>
++            </div>
++          </article>
++        </div>
++      </div>
++    </section>
++
++    <section id="pourquoi-nous">
++      <div class="container">
++        <div class="section-heading">
++          <div>
++            <span class="tag">Pourquoi nous choisir</span>
++            <h2>L’excellence du réceptif pensée dans les moindres détails</h2>
++          </div>
++          <p>Notre approche associe sens du service, exigence de qualité et connaissance du terrain pour offrir une expérience fluide, élégante et mémorable.</p>
++        </div>
++
++        <div class="reasons">
++          <article class="reason">
++            <span class="reason-number">01</span>
++            <h3>Expertise locale</h3>
++            <p>Nous sélectionnons les meilleures adresses et expériences pour révéler une destination sous son plus beau jour.</p>
++          </article>
++          <article class="reason">
++            <span class="reason-number">02</span>
++            <h3>Accompagnement personnalisé</h3>
++            <p>Chaque projet bénéficie d’un suivi attentif, d’une écoute active et d’une adaptation précise à votre profil.</p>
++          </article>
++          <article class="reason">
++            <span class="reason-number">03</span>
++            <h3>Positionnement premium</h3>
++            <p>Nos partenaires sont choisis pour leur fiabilité, leur raffinement et leur capacité à délivrer un service irréprochable.</p>
++          </article>
++          <article class="reason">
++            <span class="reason-number">04</span>
++            <h3>Sérénité totale</h3>
++            <p>De la conception du séjour à l’assistance sur place, nous coordonnons chaque étape avec précision et discrétion.</p>
++          </article>
++        </div>
++      </div>
++    </section>
+ 
+-  <h1>Bienvenue sur mon site 🚀</h1>
+-  <p>Site créé par Frédéric avec GitHub</p>
++    <section class="contact" id="contact">
++      <div class="container">
++        <div class="contact-box">
++          <div class="contact-content">
++            <span class="tag">Contact</span>
++            <h2>Parlons de votre prochain projet de voyage</h2>
++            <p class="lead">Confiez-nous vos envies, vos objectifs et vos dates de séjour. Ugo Travel vous propose une expérience réceptive haut de gamme, pensée pour impressionner vos voyageurs et simplifier votre organisation.</p>
++          </div>
++          <div class="contact-side">
++            <h3>Écrivez-nous</h3>
++            <a class="contact-mail" href="mailto:contact@ugotravel.com">contact@ugotravel.com</a>
++            <a class="btn btn-primary" href="mailto:contact@ugotravel.com?subject=Demande%20d'information%20-%20Ugo%20Travel">Nous contacter</a>
++          </div>
++        </div>
++      </div>
++    </section>
++  </main>
+ 
++  <footer>
++    <div class="container">© 2026 Ugo Travel — Agence réceptive touristique premium.</div>
++  </footer>
+ </body>
+ </html>
